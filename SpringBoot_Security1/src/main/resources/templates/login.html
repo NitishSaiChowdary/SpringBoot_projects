@@ -1,0 +1,144 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <title>Login Page</title> -->
+<!--     <style> -->
+/*         body { */
+/*             font-family: Arial, sans-serif; */
+/*             background-color: #f4f4f4; */
+/*             display: flex; */
+/*             justify-content: center; */
+/*             align-items: center; */
+/*             height: 100vh; */
+/*             margin: 0; */
+/*         } */
+
+/*         .login-container { */
+/*             background: white; */
+/*             padding: 20px; */
+/*             border-radius: 10px; */
+/*             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+/*             width: 300px; */
+/*             text-align: center; */
+/*         } */
+
+/*         .login-container h2 { */
+/*             margin-bottom: 20px; */
+/*         } */
+
+/*         input { */
+/*             width: 100%; */
+/*             padding: 10px; */
+/*             margin: 10px 0; */
+/*             border: 1px solid #ccc; */
+/*             border-radius: 5px; */
+/*         } */
+
+/*         button { */
+/*             width: 100%; */
+/*             padding: 10px; */
+/*             background: #007bff; */
+/*             color: white; */
+/*             border: none; */
+/*             border-radius: 5px; */
+/*             cursor: pointer; */
+/*         } */
+
+/*         button:hover { */
+/*             background: #0056b3; */
+/*         } */
+
+/*         .message { */
+/*             margin-top: 15px; */
+/*             font-weight: bold; */
+/*         } */
+
+/*         .saml-button { */
+/*             background-color: #28a745; */
+/*         } */
+
+/*         .saml-button:hover { */
+/*             background-color: #218838; */
+/*         } */
+<!--     </style> -->
+<!-- </head> -->
+<!-- <body> -->
+
+<!--     <div class="login-container"> -->
+<!--         <h2>Login</h2> -->
+
+<!--         Database Authentication -->
+<!--         <input type="text" id="username" placeholder="Username" required> -->
+<!--         <input type="password" id="password" placeholder="Password" required> -->
+<!--         <button onclick="login()">Login with Database</button> -->
+        
+<!--         <hr> -->
+
+<!--         SAML2 Authentication -->
+<!--         <form method="post" action="/saml2/authenticate/1cea2cdd-d0e9-4c2b-adf9-eea6f30fbee3"> -->
+<!--             <button type="submit" class="saml-button">Login with SAML2</button> -->
+<!--         </form> -->
+
+<!--         <p class="message" id="message"></p> -->
+<!--     </div> -->
+
+<!--     <script> -->
+//     async function login() {
+//         const username = document.getElementById("username").value;
+//         const password = document.getElementById("password").value;
+//         const messageElement = document.getElementById("message");
+
+//         // Send POST request to /auth/login with username and password
+//         const response = await fetch("/auth/login", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({ username, password })
+//         });
+
+//         const result = await response.text();  // Expecting JWT token or error message
+
+//         // Handle response from backend
+//         if (response.ok) {
+//             messageElement.style.color = "green";
+//             messageElement.textContent = "Login Successful!";
+//             localStorage.setItem("token", result);  // Save JWT Token in localStorage
+//             window.location.href = "/auth/home";  // Redirect to the desired page after successful login
+//         } else {
+//             messageElement.style.color = "red";
+//             messageElement.textContent = result || "Login Failed!";  // Display error message (e.g., "Invalid username or password")
+//         }
+//         async function fetchUserData() {
+//             const token = localStorage.getItem("token");
+
+//             if (!token) {
+//                 window.location.href = "/";  // Redirect to login if no token is found
+//                 return;
+//             }
+
+//             const response = await fetch("http://localhost:8084/auth/home", { // Use correct API URL
+//                 method: "GET",
+//                 headers: {
+//                     "Authorization": "Bearer " + token,
+//                     "Content-Type": "application/json"
+//                 }
+//             });
+
+//             if (response.status === 401) {
+//                 alert("Session expired! Please log in again.");
+//                 localStorage.removeItem("token");
+//                 window.location.href = "/";
+//             } else {
+//                 const data = await response.json();
+//                 console.log("User Data:", data);
+//             }
+//         }
+//     }
+
+<!--     </script> -->
+
+<!-- </body> -->
+<!-- </html> -->
