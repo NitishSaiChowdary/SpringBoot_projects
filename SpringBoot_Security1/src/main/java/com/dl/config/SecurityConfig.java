@@ -47,6 +47,7 @@ public class SecurityConfig {
 		.authorizeHttpRequests(request ->request
 		.requestMatchers("/auth/register","/auth/login")
 		.permitAll()
+		.requestMatchers("/auth/update-password").authenticated()
 		.anyRequest().authenticated())
 		.httpBasic(Customizer.withDefaults())
 		.sessionManagement(session ->

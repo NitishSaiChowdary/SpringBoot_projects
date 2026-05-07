@@ -1,0 +1,4 @@
+FROM openjdk:27-ea-slim-trixie
+
+ADD  target/SpringBoot_emp1-0.0.1-SNAPSHOT.jar SpringBoot_emp1-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","SpringBoot_emp1-0.0.1-SNAPSHOT.jar"]

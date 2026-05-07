@@ -1,7 +1,6 @@
 package com.dl.service.impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -34,7 +33,7 @@ public class EmpServiceImpl implements EmpService {
 	}
 	
 	
-	//create a multiple employess
+	//create a multiple employees
     @Override
     public List<EmpModel> createEmployees(List<EmpModel> empModels) {
         return empRepository.saveAll(empModels); // Save a list of employees
@@ -122,8 +121,5 @@ public class EmpServiceImpl implements EmpService {
 		// TODO Auto-generated method stub
 		return empRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.ASC,field)));
 	}  
-
-
-
 
 }

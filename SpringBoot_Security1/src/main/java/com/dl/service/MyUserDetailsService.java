@@ -13,7 +13,6 @@ import com.dl.repo.UserRepo;
 public class MyUserDetailsService  implements UserDetailsService{
     @Autowired
 	private UserRepo userRepo;
-	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Users user=userRepo.findByUsername(username);
 		if(user == null) {
@@ -22,5 +21,6 @@ public class MyUserDetailsService  implements UserDetailsService{
 		}
 		return new UserPrincipal(user);
 	}
+
 
 }
