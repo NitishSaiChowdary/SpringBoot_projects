@@ -1,0 +1,30 @@
+1.after install 
+to start solr open cmd solr/bin 
+--solr start -p 8983
+to stop solr 
+--solr stop -p 8983
+to create the core 
+--solr create -c employee_core
+to import the data to employee_core 
+--solr post -c employee_core  "C:\Users\nitish.yalamarthi\OneDrive - SoftSol Inc\Documents\employee.json"
+
+Addfields using Schema API----
+
+--curl -X POST -H "Content-Type: application/json" --data-binary "{\"add-field\":{\"name\":\"name\",\"type\":\"text_general\",\"stored\":true,\"indexed\":true}}" http://localhost:8983/solr/employee_core/schema
+
+to add or update mult fields using schema Api ------
+
+--curl -X POST -H "Content-Type: application/json" --data-binary 
+"{\"add-field\":
+[{\"name\":\"name\",\"type\":\"text_general\",\"stored\":true,\"indexed\":true},
+{'name':'department','type':'string','stored':true,'indexed':true},\{'name':'skills','type':'text_general','stored':true,'indexed':true,'multiValued':true}, \
+{'name':'join_date','type':'pdate','stored':true,'indexed':true}]}
+" http://localhost:8983/solr/employee_core/schema
+
+Update (Modify) an Existing Field---
+If the field already exists and you want to update it (e.g., make it multivalued, change type), use "replace-field"
+---curl -X POST -H "Content-Type: application/json" --data-binary "{\"replace-field\":{\"name\":\"name\",\"type\":\"text_general\",\"stored\":true,\"indexed\":true}}" http://localhost:8983/solr/employee_core/schema
+
+
+Delete a Field
+--curl -X POST -H "Content-Type: application/json" --data-binary "{\"delete-field\":{\"name\":\"salary\"}}" http://localhost:8983/solr/employee_core/schema
